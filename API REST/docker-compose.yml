@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Expor a API na porta 3000
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=db_api
+      - DB_USER=lucas
+      - DB_PASSWORD=lulululu
+      - DB_DATABASE=alunos
+    depends_on:
+      - mariadb # Garante que o MariaDB inicialize antes da API
+
+  mariadb:
+    image: mariadb:latest
+    container_name: db_api
+    ports:
+      - "3306:3306" # Expor o MariaDB na porta padrão
+    environment:
+      MYSQL_ROOT_PASSWORD: 54321
+      MYSQL_DATABASE: alunos
+      MYSQL_USER: lucas
+      MYSQL_PASSWORD: lulululu
+    volumes:
+      - mariadb_data:/var/lib/mysql # Persistência de dados
+
+volumes:
+  mariadb_data:
