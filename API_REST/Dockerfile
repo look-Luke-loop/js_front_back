@@ -2,7 +2,7 @@
 FROM node:20.12.1
 
 # Criar e usar diretório de trabalho
-WORKDIR /dist/server.js
+WORKDIR /dist
 
 # Copiar arquivos do projeto
 COPY package*.json ./
