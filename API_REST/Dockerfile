@@ -13,4 +13,4 @@ COPY . .
 EXPOSE 3000
 
 # Comando para rodar a aplicação
-CMD ["node", "dist/server.js"]
+CMD ["node","dist/server.js"]
