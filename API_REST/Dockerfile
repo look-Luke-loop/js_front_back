@@ -10,7 +10,7 @@ RUN npm install
 COPY . .
 
 # Expor a porta que o servidor escutará
-EXPOSE 3001
+EXPOSE 3000
 
 # Comando para rodar a aplicação
 CMD ["node","dist/server.js"]
